@@ -6,12 +6,16 @@ function getActiveIcon() {
 }
 
 function setIconColor(id, color) {
-    document.getElementById(id).style.textShadow = '0 0 0 ' + color;
-    document.getElementById(id).color = color;
+    const obj = document.getElementById(id);
+    obj.setAttribute('color', color);
+    obj.style.backgroundColor = color;
+
+    const score = document.getElementById('score');
+    score.style.color = color;
 }
 
 function setActiveIcon(id) {
-    const previous = document.getElementById('ga').querySelector('div.icon.active');
+    const previous = document.getElementById('ga').querySelector('div.iconBg.active');
     if(previous != null) {
         previous.classList.remove('active');
     }
@@ -47,7 +51,7 @@ function reset() {
     e.innerText = '00';
 
     //deactivate icon
-    const active = document.getElementById('ga').querySelector('div.icon.active');
+    const active = document.getElementById('ga').querySelector('div.iconBg.active');
     if(active != null) {
         active.classList.remove('active');
     }

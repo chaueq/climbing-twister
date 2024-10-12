@@ -1,5 +1,5 @@
 :root {
-    --color-dark: rgb(64, 64, 64);
+    --color-dark: #363636;
     --color-light: #c0c0c0;
     --height-button: 5vh;
     --icon-size: 30vh;
@@ -17,6 +17,7 @@ body {
     z-index: 1;
     padding: 0;
     margin: 0;
+    font-family: "Teko", sans-serif;
 }
 
 div {
@@ -52,7 +53,7 @@ div.leftBtn {
     user-select: none;
     cursor: pointer;
     height: var(--height-button);
-    font-size: calc(var(--height-button) / 2);
+    font-size: calc(var(--height-button) / 1.5);
     line-height: var(--height-button);
     width: 45vw;
     border-radius: 1vh;
@@ -75,34 +76,54 @@ div.ad {
 div.mainArea {
     width: 100vw;
     height: 72.5vh;
-    /* background-color: rgba(80, 220, 255, 0.1); */
     top: 10vh;
     left: 0;
 }
 
 div.left {
-    left: calc(30vw - (var(--icon-size) / 2.5));
+    left: calc(50vw - var(--icon-size));
 }
 
 div.right {
-    right: calc(30vw - (var(--icon-size) / 2.5));
+    right: calc(50vw - var(--icon-size));
 }
 
-div.hand {
+div.hand.iconBg {
     top: calc(var(--icon-size) / 10);
+}
+
+div.hand.icon {
+    background-image: url('img/hand.png');
 }
 
 div.foot {
     bottom: calc(var(--icon-size) / 10);
 }
 
+div.foot.icon {
+    background-image: url('img/foot.png');
+}
+
 .icon {
-    color: transparent;
-    text-shadow: 0 0 0 var(--color-light);
-    filter: opacity(0.25);
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    top: 0px;
+    left: 0px;
+    border: 1px solid var(--color-dark);
+}
+
+.iconBg {
     height: var(--icon-size);
-    font-size: calc(var(--icon-size) / 2);
-    line-height: var(--icon-size);
+    width: var(--icon-size);
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background-color: var(--color-light);
+    white-space: nowrap;
+    opacity: 0.25;
 }
 
 .mirrored {
@@ -112,21 +133,16 @@ div.foot {
 .color_hand.active,
 .color_foot.active,
 .active {
-    filter: none;
-}
-
-.active.icon {
-    border: 1px var(--color-light) solid;
-    border-radius: 100%;
+    opacity: 1;
 }
 
 div.score {
-    width: 20vw;
-    height: 20vh;
-    top: 25vh;
-    left: 40vw;
-    font-size: 10vh;
-    line-height: 20vh;
+    width: 20vmin;
+    height: 20vmin;
+    top: calc(35vh - 10vmin);
+    left: calc(50vw - 10vmin);
+    font-size: 15vmin;
+    line-height: 22.5vmin;
     text-align: center;
 }
 
@@ -158,6 +174,10 @@ div.score {
 .color_hand,
 .color_foot {
     filter: brightness(0.1);
+}
+
+.color_element.active {
+    filter: none;
 }
 
 iframe.ad {
