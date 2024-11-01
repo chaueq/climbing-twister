@@ -67,3 +67,17 @@ document.getElementById('colors').addEventListener('click', (e) => {
     window.location.href = 'colors.html';
 })
 document.getElementById('reset').addEventListener('click', reset);
+
+window.onload = (e) => {
+    for(const part of ['hand', 'foot']) {
+        const img = new Image();
+        img.src = '/img/' + part + '.png';
+        img.onload = ((part, e) => {
+            const img = e.target;
+            const ids = part == 'hand' ? ['rh', 'lh'] : ['rf', 'lf'];
+            for(const id of ids) {
+                document.getElementById(id).querySelector('div.icon').style.backgroundImage = 'url(' + img.src + ')';
+            }
+        }).bind(null, part)
+    }
+};

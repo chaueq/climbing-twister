@@ -93,7 +93,7 @@ div.hand.iconBg {
 }
 
 div.hand.icon {
-    background-image: url('img/hand.png');
+    background-image: url('img/hand-small.png');
 }
 
 div.foot {
@@ -101,7 +101,7 @@ div.foot {
 }
 
 div.foot.icon {
-    background-image: url('img/foot.png');
+    background-image: url('img/foot-small.png');
 }
 
 .icon {
